@@ -1,0 +1,48 @@
+{
+  "version": 7,
+  "constants": {
+    "@water": "#88aacc",
+    "@water_dark": "#185869",
+    "@land": "rgb(244,239,225)",
+    "@nxt": "red"
+  },
+  "sources": {
+    "channels": {
+      "type": "geojson",
+      "data": "http://gijs.github.io/channels/channels.geojson"
+    },        
+    "mapbox": {
+      "type": "vector",
+      "url": "mapbox://mapbox.mapbox-terrain-v1,mapbox.mapbox-streets-v6-dev,"
+    }
+  },
+  "sprite": "https://www.mapbox.com/mapbox-gl-styles/sprites/sprite",
+  "glyphs": "mapbox://fontstack/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "@land"
+      }
+    },
+    {
+      "id": "channels",
+      "source": "channels",
+      "type" : "line",
+      "paint": {
+        "line-color": "#3879D9"
+      }
+    },    
+    {
+      "id": "water",
+      "source": "mapbox",
+      "source-layer": "water",
+      "type": "fill",
+      "paint": {
+        "fill-color": "@water",
+        "fill-outline-color": "@water_dark"
+      }
+    }
+  ]
+}
